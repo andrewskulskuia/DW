@@ -12,4 +12,5 @@ app.get('/timestamp', (req, res) => {
 
 app.listen(PORT, () => {
   console.log(`http://${HOST}:${PORT}`)
+  console.log(`http://${HOST}:${PORT}`)
 });
