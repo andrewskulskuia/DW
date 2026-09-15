@@ -82,7 +82,7 @@ app.get('/product/:id', (req, res) => {
     const foundProduct = product.find(item => item.id === Number(req.params.id))
     
     if (!foundProduct) {
-        return res.status(404).json({message: "product not found" })
+        return res.status(404).json({message: "product not found!" })
     }
     
     res.json(foundProduct)
