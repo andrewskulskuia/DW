@@ -72,7 +72,13 @@ app.get('/product', (req, res) => {
     }
 
     if (take) {
-        result = result.slice(0, Number(take))
+        let num = Number(take)
+
+        result = result.slice(0, num)
+
+        if (isNaN(num) || num <= 0) {
+            return res.status(400).json({ message: "The number must be greater than zero" })
+        }
     }
 
     res.json(result)
@@ -82,7 +88,7 @@ app.get('/product/:id', (req, res) => {
     const foundProduct = product.find(item => item.id === Number(req.params.id))
     
     if (!foundProduct) {
-        return res.status(404).json({message: "product not found" })
+        return res.status(404).json({message: "product not found!" })
     }
     
     res.json(foundProduct)
